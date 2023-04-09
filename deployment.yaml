@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: userapi
+  labels:
+    app: userapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: userapi
+  template:
+    metadata:
+      labels:
+        app: userapi
+    spec:
+      containers:
+        - name: userapi
+          image: souvikdas81/userapi:1.0
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8081
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "200m"
