@@ -9,9 +9,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/userapi/v1")
-public class UserController {
+public class UserControllerV1 {
     @Autowired
     private UserService userService;
+
+    @GetMapping("/ping")
+    public String ping() {
+        return "User API V1";
+    }
 
     @GetMapping("/allusers")
     public List<UserRecord> getAllUsers() {
